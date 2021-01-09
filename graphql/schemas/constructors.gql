@@ -7,5 +7,6 @@ type Constructor {
 }
 
 type Query {
+  constructor(ref: String!): Constructor!
   constructors: [Constructor!]!
 }

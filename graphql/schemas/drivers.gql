@@ -1,0 +1,16 @@
+type Driver {
+  _id: ID!
+  driverRef: String!
+  number: Int
+  code: String!
+  forename: String!
+  surname: String!
+  dob: String!
+  nationality: String!
+  url: String
+}
+
+type Query {
+  driver(ref: String!): Driver!
+  drivers: [Driver!]!
+}

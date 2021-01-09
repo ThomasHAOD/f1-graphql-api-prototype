@@ -1,0 +1,16 @@
+type Circuit {
+  _id: ID!
+  circuitRef: String!
+  name: String!
+  location: String!
+  country: String!
+  lat: Float
+  lng: Float
+  alt: Int
+  url: String
+}
+
+type Query {
+  circuit(ref: String!): Circuit!
+  circuits: [Circuit!]!
+}
