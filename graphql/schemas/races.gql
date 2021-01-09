@@ -1,0 +1,15 @@
+type Race {
+  _id: ID!
+  year: Int!
+  round: Int!
+  circuitId: Int!
+  name: String!
+  date: String!
+  time: String!
+  url: String
+}
+
+type Query {
+  racesFromYear(year: Int!): [Race]!
+  racesFromRound(round: Int!): [Race]!
+}

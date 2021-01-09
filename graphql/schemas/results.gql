@@ -1,0 +1,24 @@
+type Result {
+  _id: ID!
+  raceId: Int!
+  driverId: Int!
+  constructorId: Int!
+  number: Int
+  grid: Int!
+  position: Int!
+  positionText: Int!
+  positionOrder: Int!
+  points: Int!
+  laps: Int!
+  time: String
+  milliseconds: Int
+  fastestLap: Int
+  rank: Int
+  fastestLapTime: String
+  fastestLapSpeed: Float
+  statusId: Int!
+}
+
+type Query {
+  results: [Result!]!
+}
