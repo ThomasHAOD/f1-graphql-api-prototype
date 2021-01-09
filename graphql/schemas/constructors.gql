@@ -1,0 +1,11 @@
+type Constructor {
+  _id: ID!
+  constructorRef: String!
+  name: String!
+  nationality: String
+  url: String
+}
+
+type Query {
+  constructors: [Constructor!]!
+}
