@@ -1,0 +1,5 @@
+type Season {
+  _id: ID!
+  year: String!
+  url: String!
+}
