@@ -9,10 +9,10 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const races = result.map((races) => {
+      const races = result.map((race) => {
         return {
-          ...races._doc,
-          _id: races._id.toString(),
+          ...race._doc,
+          _id: race._id.toString(),
         };
       });
       return races;
@@ -24,10 +24,10 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const races = result.map((races) => {
+      const races = result.map((race) => {
         return {
-          ...races._doc,
-          _id: races._id.toString(),
+          ...race._doc,
+          _id: race._id.toString(),
         };
       });
       return races;

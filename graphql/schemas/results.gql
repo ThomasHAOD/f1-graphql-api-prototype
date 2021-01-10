@@ -3,22 +3,26 @@ type Result {
   raceId: Int!
   driverId: Int!
   constructorId: Int!
-  number: Int
+  number: Int!
   grid: Int!
-  position: Int!
-  positionText: Int!
-  positionOrder: Int!
-  points: Int!
-  laps: Int!
+  position: Int
+  positionText: Int
+  positionOrder: Int
+  points: Int
+  laps: Int
   time: String
   milliseconds: Int
   fastestLap: Int
   rank: Int
   fastestLapTime: String
   fastestLapSpeed: Float
-  statusId: Int!
+  statusId: Int
+  raceRef: String!
+  driverRef: String!
+  constructorRef: String!
+  statusRef: String
 }
 
 type Query {
-  results: [Result!]!
+  resultsByDriver(driverRef: String!): [Result!]!
 }
