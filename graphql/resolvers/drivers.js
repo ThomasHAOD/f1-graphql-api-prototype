@@ -1,4 +1,5 @@
 const Driver = require('../../models/driver');
+const Result = require('../../models/result');
 
 module.exports = {
   Query: {
@@ -25,6 +26,23 @@ module.exports = {
         throw error;
       }
       return result;
+    },
+  },
+  Driver: {
+    results: async (parent) => {
+      const result = await Result.find({ driverRef: parent.driverRef });
+      if (!result) {
+        const error = new Error('No Results found');
+        error.code = 422;
+        throw error;
+      }
+      const results = result.map((result) => {
+        return {
+          ...result._doc,
+          _id: result._id.toString(),
+        };
+      });
+      return results;
     },
   },
 };

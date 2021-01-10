@@ -1,5 +1,5 @@
 const fs = require('fs');
-const results = require('../../og-data-json/dataWithRefs/results.json');
+const results = require('../../og-data-json/seasons.json');
 const lookupTable = require('./lookups/status.json');
 
 const addRefs = (data, lookupTable, idName, refName) => {

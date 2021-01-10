@@ -1,0 +1,23 @@
+type Qualifying {
+  _id: ID!
+  raceId: Int!
+  driverId: Int!
+  constructorId: Int!
+  number: Int!
+  position: Int!
+  q1: String!
+  q2: String!
+  q3: String!
+  driverRef: String!
+  raceRef: String!
+  constructorRef: String!
+}
+
+type Query {
+  qualifyings: [Qualifying!]!
+  qualifyingByDriver(driverRef: String!): [Qualifying!]!
+  qualifyingByDriverAndPosition(
+    driverRef: String!
+    position: Int
+  ): [Qualifying!]!
+}

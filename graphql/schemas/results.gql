@@ -25,4 +25,5 @@ type Result {
 
 type Query {
   resultsByDriver(driverRef: String!): [Result!]!
+  resultsByDriverAndPosition(driverRef: String!, position: Int): [Result!]!
 }

@@ -8,6 +8,7 @@ type Driver {
   dob: String!
   nationality: String!
   url: String
+  results: [Result!]!
 }
 
 type Query {
