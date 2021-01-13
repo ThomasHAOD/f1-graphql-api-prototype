@@ -1,19 +1,19 @@
 const fs = require('fs');
 
-const status = require('../../og-data-json/status.json');
+const status = require('../../og-data-json/dataWithRefs/races.json');
 
 const createLookupTable = (data) => {
   const keys = Object.keys(data);
   const lookupTable = {};
   for (const key of keys) {
-    const status = data[key].status;
-    lookupTable[key] = status;
+    const round = data[key].round;
+    lookupTable[key] = round;
   }
   return JSON.stringify(lookupTable);
 };
 
 fs.writeFile(
-  `${__dirname}/lookups/status.json`,
+  `${__dirname}/raceToRound.json`,
   createLookupTable(status),
   'utf8',
   (err) => {

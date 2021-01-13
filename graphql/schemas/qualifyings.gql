@@ -11,6 +11,8 @@ type Qualifying {
   driverRef: String!
   raceRef: String!
   constructorRef: String!
+  season: Int!
+  round: Int!
 }
 
 type Query {

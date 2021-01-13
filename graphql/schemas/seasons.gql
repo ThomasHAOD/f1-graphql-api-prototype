@@ -1,5 +1,14 @@
 type Season {
   _id: ID!
   year: String!
+  season: String!
   url: String!
+  races: [Race!]
+  results: [Result!]
+  qualifyings: [Qualifying!]
+}
+
+type Query {
+  seasons: [Season!]!
+  season(year: String!): Season!
 }

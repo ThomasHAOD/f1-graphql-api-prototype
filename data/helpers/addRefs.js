@@ -1,6 +1,6 @@
 const fs = require('fs');
-const results = require('../../og-data-json/seasons.json');
-const lookupTable = require('./lookups/status.json');
+const results = require('../../og-data-json/dataWithRefs/qualifying.json');
+const lookupTable = require('../lookups/raceToRound.json');
 
 const addRefs = (data, lookupTable, idName, refName) => {
   const newData = {};
@@ -15,8 +15,8 @@ const addRefs = (data, lookupTable, idName, refName) => {
 };
 
 fs.writeFile(
-  `${__dirname}/dataWithRefs/results.json`,
-  addRefs(results, lookupTable, 'statusId', 'statusRef'),
+  `${__dirname}/qualifying.json`,
+  addRefs(results, lookupTable, 'raceId', 'round'),
   'utf8',
   (err) => {
     if (err) {

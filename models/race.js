@@ -14,6 +14,10 @@ const raceSchema = new Schema({
     type: Number,
     required: true,
   },
+  circuitRef: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

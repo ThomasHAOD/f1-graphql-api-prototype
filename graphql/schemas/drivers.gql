@@ -9,6 +9,7 @@ type Driver {
   nationality: String!
   url: String
   results: [Result!]!
+  qualifyings: [Qualifying!]!
 }
 
 type Query {

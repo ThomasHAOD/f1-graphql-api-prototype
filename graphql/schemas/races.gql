@@ -6,10 +6,14 @@ type Race {
   name: String!
   date: String!
   time: String!
+  circuitRef: String!
+  circuit: Circuit!
   url: String
+  results: [Result!]!
 }
 
 type Query {
   racesFromYear(year: Int!): [Race]!
   racesFromRound(round: Int!): [Race]!
+  race(round: Int!, year: Int!): Race!
 }

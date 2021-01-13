@@ -1,9 +1,11 @@
 const Driver = require('../../models/driver');
 const Result = require('../../models/result');
+const Qualifying = require('../../models/qualifying');
 
 module.exports = {
   Query: {
     drivers: async () => {
+      console.log('driver');
       const result = await Driver.find();
       if (!result) {
         const error = new Error('No Drivers found');
@@ -33,6 +35,21 @@ module.exports = {
       const result = await Result.find({ driverRef: parent.driverRef });
       if (!result) {
         const error = new Error('No Results found');
+        error.code = 422;
+        throw error;
+      }
+      const results = result.map((result) => {
+        return {
+          ...result._doc,
+          _id: result._id.toString(),
+        };
+      });
+      return results;
+    },
+    qualifyings: async (parent) => {
+      const result = await Qualifying.find({ driverRef: parent.driverRef });
+      if (!result) {
+        const error = new Error('No Qualifyings found');
         error.code = 422;
         throw error;
       }

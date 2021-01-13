@@ -21,9 +21,12 @@ type Result {
   driverRef: String!
   constructorRef: String!
   statusRef: String
+  season: Int!
+  round: Int!
 }
 
 type Query {
   resultsByDriver(driverRef: String!): [Result!]!
+  resultsByYear(driverRef: String!, year: Int!): [Result!]!
   resultsByDriverAndPosition(driverRef: String!, position: Int): [Result!]!
 }
