@@ -3,9 +3,9 @@ type Season {
   year: String!
   season: String!
   url: String!
-  races: [Race!]
-  results: [Result!]
-  qualifyings: [Qualifying!]
+  races: [Race!]!
+  results: [Result!]!
+  qualifyings: [Qualifying!]!
 }
 
 type Query {

@@ -2,7 +2,9 @@ const Season = require('../../models/season');
 const Result = require('../../models/result');
 const Qualifying = require('../../models/qualifying');
 const Race = require('../../models/race');
-const mapMongoResults = require('./helpers/map-mongo-results');
+const Driver = require('../../models/driver');
+const mapMongoResults = require('../../helpers/map-mongo-results');
+const NotFoundError = require('../../errors/not-found-error');
 
 module.exports = {
   Query: {

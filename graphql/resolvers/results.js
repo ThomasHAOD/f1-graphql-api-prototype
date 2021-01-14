@@ -1,6 +1,6 @@
 const Result = require('../../models/result');
-const NotFoundError = require('./errors/not-found-error');
-const mapMongoResults = require('./helpers/map-mongo-results');
+const NotFoundError = require('../../errors/not-found-error');
+const mapMongoResults = require('../../helpers/map-mongo-results');
 
 module.exports = {
   Query: {

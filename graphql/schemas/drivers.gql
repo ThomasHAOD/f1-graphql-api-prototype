@@ -6,7 +6,7 @@ type Driver {
   forename: String!
   surname: String!
   dob: String!
-  nationality: String!
+  nationality: String
   url: String
   results: [Result!]!
   qualifyings: [Qualifying!]!

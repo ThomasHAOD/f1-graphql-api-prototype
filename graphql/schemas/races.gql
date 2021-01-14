@@ -8,7 +8,7 @@ type Race {
   time: String!
   circuitRef: String!
   circuit: Circuit!
-  url: String
+  url: String!
   results: [Result!]!
 }
 

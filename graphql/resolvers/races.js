@@ -1,8 +1,8 @@
 const Race = require('../../models/race');
 const Circuit = require('../../models/circuit');
 const Result = require('../../models/result');
-const mapMongoResults = require('./helpers/map-mongo-results');
-const NotFoundError = require('./errors/not-found-error');
+const mapMongoResults = require('../../helpers/map-mongo-results');
+const NotFoundError = require('../../errors/not-found-error');
 
 module.exports = {
   Query: {
