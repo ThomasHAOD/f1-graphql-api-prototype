@@ -1,6 +1,7 @@
 const Race = require('../../models/race');
 const Circuit = require('../../models/circuit');
 const Result = require('../../models/result');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -11,12 +12,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const races = result.map((race) => {
-        return {
-          ...race._doc,
-          _id: race._id.toString(),
-        };
-      });
+      const races = mapMongoResults(result);
       return races;
     },
     racesFromRound: async (_, { round }) => {
@@ -26,12 +22,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const races = result.map((race) => {
-        return {
-          ...race._doc,
-          _id: race._id.toString(),
-        };
-      });
+      const races = mapMongoResults(result);
       return races;
     },
     race: async (_, { round, year }) => {
@@ -64,12 +55,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
   },

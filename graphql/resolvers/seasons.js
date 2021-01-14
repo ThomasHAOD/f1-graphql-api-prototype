@@ -2,6 +2,7 @@ const Season = require('../../models/season');
 const Result = require('../../models/result');
 const Qualifying = require('../../models/qualifying');
 const Race = require('../../models/race');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -12,12 +13,7 @@ module.exports = {
         error.code = 500;
         throw error;
       }
-      const seasons = result.map((season) => {
-        return {
-          ...season._doc,
-          _id: season._id.toString(),
-        };
-      });
+      const seasons = mapMongoResults(result);
       return seasons;
     },
     season: async (_, { year }) => {
@@ -38,12 +34,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
     qualifyings: async (parent) => {
@@ -53,12 +44,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const qualifyings = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const qualifyings = mapMongoResults(result);
       return qualifyings;
     },
     races: async (parent) => {
@@ -68,12 +54,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const races = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const races = mapMongoResults(result);
       return races;
     },
   },

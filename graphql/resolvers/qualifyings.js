@@ -1,4 +1,5 @@
 const Qualifying = require('../../models/qualifying');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -9,12 +10,7 @@ module.exports = {
         error.code = 500;
         throw error;
       }
-      const qualifyings = result.map((qualifying) => {
-        return {
-          ...qualifying._doc,
-          _id: qualifying._id.toString(),
-        };
-      });
+      const qualifyings = mapMongoResults(result);
       return qualifyings;
     },
     qualifyingByDriver: async (_, { driverRef }) => {
@@ -24,12 +20,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
     qualifyingByDriverAndPosition: async (_, { driverRef, position }) => {
@@ -42,12 +33,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
   },

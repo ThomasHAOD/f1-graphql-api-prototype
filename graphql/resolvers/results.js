@@ -1,4 +1,5 @@
 const Result = require('../../models/result');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -9,12 +10,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
     resultsByDriverAndPosition: async (_, { driverRef, position }) => {
@@ -27,12 +23,7 @@ module.exports = {
         error.code = 422;
         throw error;
       }
-      const results = result.map((result) => {
-        return {
-          ...result._doc,
-          _id: result._id.toString(),
-        };
-      });
+      const results = mapMongoResults(result);
       return results;
     },
   },

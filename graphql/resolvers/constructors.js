@@ -1,4 +1,5 @@
 const Constructor = require('../../models/constructor');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -9,12 +10,7 @@ module.exports = {
         error.code = 500;
         throw error;
       }
-      const constructors = result.map((constructor) => {
-        return {
-          ...constructor._doc,
-          _id: constructor._id.toString(),
-        };
-      });
+      const constructors = mapMongoResults(result);
       return constructors;
     },
     constructor: async (_, { ref }) => {

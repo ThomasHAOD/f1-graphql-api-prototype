@@ -1,4 +1,5 @@
 const Circuit = require('../../models/circuit');
+const mapMongoResults = require('./helpers/map-mongo-results');
 
 module.exports = {
   Query: {
@@ -9,12 +10,7 @@ module.exports = {
         error.code = 500;
         throw error;
       }
-      const circuits = result.map((circuit) => {
-        return {
-          ...circuit._doc,
-          _id: circuit._id.toString(),
-        };
-      });
+      const circuits = mapMongoResults(result);
       return circuits;
     },
     circuit: async (_, { ref }) => {
